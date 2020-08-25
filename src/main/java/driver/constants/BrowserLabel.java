@@ -2,12 +2,12 @@ package driver.constants;
 
 public enum BrowserLabel {
 
-    CHROME  (System.getProperty("user.dir") + "/src/main/java/driver/constants/chrome"),
-    EDGE    (System.getProperty("user.dir") + "/src/main/java/driver/constants/edge"),
-    FF      (System.getProperty("user.dir") + "/src/main/java/driver/constants/firefox"),
-    IE      (System.getProperty("user.dir") + "/src/main/java/driver/constants/ie"),
-    OPERA   (System.getProperty("user.dir") + "/src/main/java/driver/constants/opera"),
-    SAFARI  (System.getProperty("user.dir") + "/src/main/java/driver/constants/safari"),
+    CHROME  (System.getProperty("user.dir") + "/src/main/resources/chrome"),
+    EDGE    (System.getProperty("user.dir") + "/src/main/resources/edge"),
+    FF      (System.getProperty("user.dir") + "/src/main/resources/firefox"),
+    IE      (System.getProperty("user.dir") + "/src/main/resources/ie"),
+    OPERA   (System.getProperty("user.dir") + "/src/main/resources/opera"),
+    SAFARI  (System.getProperty("user.dir") + "/src/main/resources/safari"),
     ;
     public final String path;
 
