@@ -2,4 +2,5 @@
 
 # WEB-UI
 QA environment switcher for Local PC, Remote Selenoid server and Remote Mobile web/app server.
-Get a BasePage object with suitable WebDrive
+
+Get a BasePage object with suitable WebDriver 
