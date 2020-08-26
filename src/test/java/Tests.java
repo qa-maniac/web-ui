@@ -8,6 +8,7 @@ public class Tests {
 
 
     public static void main(String[] args) {
+        System.clearProperty("webdriver.chrome.driver");
         new Tests().checkEnvironment();
     }
 

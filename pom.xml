@@ -6,7 +6,7 @@
 
     <groupId>com.github.somnambulaDreams</groupId>
     <artifactId>web-ui</artifactId>
-    <version>0.1.0.2</version>
+    <version>0.1.0.3</version>
 
     <name>UI Environment WebDriver</name>
     <description>Environment switcher for testing on local PC, remote Selenoid server, remote mobile web/app server.</description>

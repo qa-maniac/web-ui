@@ -3,6 +3,7 @@ package config;
 public enum DotEnvField {
     ENVIRONMENT,
     BROWSER,
+    BROWSER_VERSION,
     SERVER_URL,
     PLATFORM,
     MODE,

@@ -5,7 +5,7 @@ import driver.MobileCapabilities;
 import driver.Local;
 import driver.Mobile;
 import driver.Selenoid;
-import driver.constants.Browser;
+import driver.constants.BrowserLabel;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import ui.BasePage;
@@ -20,8 +20,9 @@ public class Environment {
     public Environment() {
         WebDriver driver = null;
 
-        Browser browser = getBrowser();
-        if(browser == null) {
+        BrowserLabel browserLabel = getBrowserLabel();
+        String browserVersion = config.getBrowserVersion();
+        if(browserLabel == null) {
             try {
                 throw new Exception("Pay attention! Check a browser value in '.env' file.");
             } catch (Exception ex) {
@@ -32,15 +33,15 @@ public class Environment {
                 String serverUrl = config.getServerUrl();
                 Platform platform = getPlatform();
                 String mode = config.getMode();
-                MobileCapabilities caps = new MobileCapabilities(browser, mode);
+                MobileCapabilities caps = new MobileCapabilities(browserLabel, browserVersion, mode);
                 driver = new Mobile(serverUrl, platform, caps).driver();
             } else if (config.getEnvironment().toLowerCase().equals(EnvironmentType.SELENOID.toString().toLowerCase())) {
                 String serverUrl = config.getServerUrl();
                 int screenWidth = Integer.parseInt(config.getScreenWidth());
                 int screenHeight = Integer.parseInt(config.getScreenHeight());
-                driver = new Selenoid(serverUrl, browser, screenWidth, screenHeight).driver();
+                driver = new Selenoid(serverUrl, browserLabel, browserVersion, screenWidth, screenHeight).driver();
             } else if (config.getEnvironment().toLowerCase().equals(EnvironmentType.LOCAL.toString().toLowerCase()))
-                driver = new Local(browser).driver();
+                driver = new Local(browserLabel, browserVersion).getDriver();
             else
                 try {
                     throw new Exception("Pay attention! Check an environment value in '.env' file.");
@@ -57,9 +58,9 @@ public class Environment {
     }
 
 
-    private Browser getBrowser() {
-        Browser result = null;
-        for(Browser browser : Browser.values()) {
+    private BrowserLabel getBrowserLabel() {
+        BrowserLabel result = null;
+        for(BrowserLabel browser : BrowserLabel.values()) {
             if(browser.toString().toLowerCase().equals(config.getBrowser().toLowerCase())) {
                 result = browser;
                 break;

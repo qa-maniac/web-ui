@@ -1,12 +1,10 @@
 package driver;
 
 import config.PropertiesConfig;
-import driver.constants.Browser;
+import driver.constants.BrowserLabel;
 import driver.constants.MobileCapabilitiesField;
 import driver.constants.MobileCapabilitiesMode;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-import java.io.File;
 
 
 public class MobileCapabilities {
@@ -15,7 +13,7 @@ public class MobileCapabilities {
     private DesiredCapabilities caps = new DesiredCapabilities();
 
 
-    public MobileCapabilities(Browser browser, String modeLabel) {
+    public MobileCapabilities(BrowserLabel browserLabel, String browserVersion, String modeLabel) {
         MobileCapabilitiesMode mode = null;
         try {
            mode = getMode(modeLabel);
@@ -24,22 +22,25 @@ public class MobileCapabilities {
         }
 
         if(mode == MobileCapabilitiesMode.WEB)
-            setWebCapabilities(browser);
+            setWebCapabilities(browserLabel, browserVersion);
         else setCapabilitiesFromFile();
     }
 
 
-    public MobileCapabilities(Browser browser, MobileCapabilitiesMode mode) {
+    public MobileCapabilities(BrowserLabel browserLabel, String browserVersion, MobileCapabilitiesMode mode) {
         if(mode == MobileCapabilitiesMode.WEB)
-            setWebCapabilities(browser);
+            setWebCapabilities(browserLabel, browserVersion);
         else setCapabilitiesFromFile();
     }
 
 
-    private void setWebCapabilities(Browser browser) {
+    private void setWebCapabilities(BrowserLabel browserLabel, String browserVersion) {
         caps.setCapability(MobileCapabilitiesField.DEVICE_NAME.key, "device");
-        caps.setBrowserName(browser.label.toString().toLowerCase());
-        caps.setCapability(MobileCapabilitiesField.CHROME_DRIVER_EXECUTABLE.key, new File(browser.filePath).getAbsolutePath());
+        caps.setBrowserName(browserLabel.toString().toLowerCase());
+        Local local = new Local(browserLabel, browserVersion);
+        local.getDriver().close();
+        String driverPath = local.getDriverPath();
+        caps.setCapability(MobileCapabilitiesField.CHROME_DRIVER_EXECUTABLE.key, driverPath);
     }
 
 

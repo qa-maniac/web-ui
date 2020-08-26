@@ -1,6 +1,6 @@
 package driver;
 
-import driver.constants.Browser;
+import driver.constants.BrowserLabel;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -10,16 +10,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class Selenoid implements UiWebDriver {
+public class Selenoid {
 
     private WebDriver driver;
     private Dimension dimension;
 
 
-    public Selenoid(String serverUrl, Browser browser, int width, int height) {
+    public Selenoid(String serverUrl, BrowserLabel browserLabel, String version, int width, int height) {
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setBrowserName(browser.label.name().toLowerCase());
-        caps.setVersion(browser.version);
+        caps.setBrowserName(browserLabel.toString().toLowerCase());
+        caps.setVersion(version);
         caps.setCapability("enableVNC", true);
         caps.setCapability("enableVideo", false);
         caps.setCapability("screenResolution", width + "x" + height + "x24");
@@ -40,7 +40,6 @@ public class Selenoid implements UiWebDriver {
         }
     }
 
-    @Override
     public WebDriver driver() {
         return driver;
     }
