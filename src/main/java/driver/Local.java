@@ -2,6 +2,7 @@ package driver;
 
 import driver.constants.Browser;
 import driver.constants.BrowserLabel;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -25,7 +26,6 @@ public class Local implements UiWebDriver {
     @Override
     public synchronized WebDriver driver() {
         if      (browser.label.equals(BrowserLabel.IE))     return setInternetExplorerDriver();
-        else if (browser.label.equals(BrowserLabel.SAFARI)) return setSafariDriver();
         else if (browser.label.equals(BrowserLabel.FF))     return setFireFoxDriver();
         else if (browser.label.equals(BrowserLabel.OPERA))  return setOperaDriver();
         else if (browser.label.equals(BrowserLabel.EDGE))   return setEdgeDriver();
@@ -41,26 +41,30 @@ public class Local implements UiWebDriver {
     }
 
     private WebDriver setFireFoxDriver() {
-        String driverPath = new File(browser.filePath).getAbsolutePath();
-        System.setProperty("webdriver.gecko.driver", driverPath);
+//        String driverPath = new File(browser.filePath).getAbsolutePath();
+//        System.setProperty("webdriver.gecko.driver", driverPath);
+        WebDriverManager.firefoxdriver().setup();
         return new FirefoxDriver();
     }
 
     private WebDriver setChromeDriver() {
-        String driverPath = new File(browser.filePath).getAbsolutePath();
-        System.setProperty("webdriver.chrome.driver", driverPath);
+//        String driverPath = new File(browser.filePath).getAbsolutePath();
+//        System.setProperty("webdriver.chrome.driver", driverPath);
+        WebDriverManager.chromedriver().setup();
         return new ChromeDriver();
     }
 
     private WebDriver setOperaDriver() {
-        String driverPath = new File(browser.filePath).getAbsolutePath();
-        System.setProperty("webdriver.opera.driver", driverPath);
+//        String driverPath = new File(browser.filePath).getAbsolutePath();
+//        System.setProperty("webdriver.opera.driver", driverPath);
+        WebDriverManager.operadriver().setup();
         return new OperaDriver();
     }
 
     private WebDriver setEdgeDriver() {
-        String driverPath = new File(browser.filePath).getAbsolutePath();
-        System.setProperty("webdriver.edge.driver", driverPath);
+//        String driverPath = new File(browser.filePath).getAbsolutePath();
+//        System.setProperty("webdriver.edge.driver", driverPath);
+        WebDriverManager.edgedriver().setup();
         return new EdgeDriver();
     }
 
@@ -68,11 +72,5 @@ public class Local implements UiWebDriver {
         String driverPath = new File(browser.filePath).getAbsolutePath();
         System.setProperty("webdriver.ie.driver", driverPath);
         return new InternetExplorerDriver();
-    }
-
-    private WebDriver setSafariDriver() {
-        String driverPath = new File(browser.filePath).getAbsolutePath();
-        System.setProperty("webdriver.safari.driver", driverPath);
-        return new SafariDriver();
     }
 }

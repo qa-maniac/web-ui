@@ -6,7 +6,7 @@
 
     <groupId>com.github.somnambulaDreams</groupId>
     <artifactId>web-ui</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.0.1</version>
 
     <name>UI Environment WebDriver</name>
     <description>Environment switcher for testing on local PC, remote Selenoid server, remote mobile web/app server.</description>
@@ -132,5 +132,13 @@
             <artifactId>java-dotenv</artifactId>
             <version>5.2.1</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+
     </dependencies>
 </project>
