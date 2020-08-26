@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.somnambulaDreams</groupId>
+    <groupId>com.github.qa-maniac</groupId>
     <artifactId>web-ui</artifactId>
-    <version>0.1.0.3</version>
+    <version>0.1.0.4</version>
 
     <name>UI Environment WebDriver</name>
     <description>Environment switcher for testing on local PC, remote Selenoid server, remote mobile web/app server.</description>
-    <url>https://github.com/SomnambulaDreams/web-ui</url>
+    <url>https://github.com/qa-maniac/web-ui</url>
 
     <licenses>
         <license>
@@ -20,17 +20,17 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git://github.com/SomnambulaDreams/web-ui.git</connection>
-        <developerConnection>scm:git:ssh://github.com:SomnambulaDreams/web-ui.git</developerConnection>
-        <url>https://github.com/SomnambulaDreams/web-ui/tree/master</url>
+        <connection>scm:git:git://github.com/qa-maniac/web-ui.git</connection>
+        <developerConnection>scm:git:ssh://github.com:qa-maniac/web-ui.git</developerConnection>
+        <url>https://github.com/qa-maniac/web-ui/tree/master</url>
     </scm>
 
     <developers>
         <developer>
             <name>Maksym Ivanov</name>
-            <email>ivanovmv2510@gmail.com</email>
-            <organization>com.github.SomnambulaDreams</organization>
-            <organizationUrl>https://github.com/SomnambulaDreams</organizationUrl>
+            <email>mvi.qa@i.ua</email>
+            <organization>com.github.qa-maniac</organization>
+            <organizationUrl>https://github.com/qa-maniac</organizationUrl>
         </developer>
     </developers>
 
