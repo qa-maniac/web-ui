@@ -18,5 +18,11 @@ public class Tests {
         basePage.getDriver().get("https://google.com");
         WebElement element = basePage.getDriver().findElement(By.xpath("//div[2]/div[1]/div/a"));
         element.click();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        basePage.getDriver().quit();
     }
 }
