@@ -6,7 +6,7 @@
 
     <groupId>com.github.somnambulaDreams</groupId>
     <artifactId>web-ui</artifactId>
-    <version>0.1.0.1</version>
+    <version>0.1.0.2</version>
 
     <name>UI Environment WebDriver</name>
     <description>Environment switcher for testing on local PC, remote Selenoid server, remote mobile web/app server.</description>
@@ -140,5 +140,11 @@
             <version>4.2.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>29.0-jre</version>
+        </dependency>
     </dependencies>
 </project>
